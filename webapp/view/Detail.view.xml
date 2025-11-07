@@ -27,7 +27,7 @@
             }"
             numberUnit="{view>/currency}"
             intro="{invoice>ShipperName}"
-            title="Invoice">
+            title="{invoice>ProductName}">
 			<attributes>
                 <ObjectAttribute
                     title="{i18n>quantityTitle}"
