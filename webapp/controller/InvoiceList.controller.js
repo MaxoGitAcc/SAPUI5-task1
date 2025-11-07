@@ -32,6 +32,26 @@ sap.ui.define([
 			oRouter.navTo("detail", {
                 invoicePath: window.encodeURIComponent(oItem.getBindingContext("invoice").getPath().substring(1))
             });
-		}
+		},
+
+        onFilterByStatus(oEvent) {
+            const sSelectedKey = oEvent.getParameter("selectedItem").getKey();
+            const oList = this.byId("invoiceList");
+            const oBinding = oList.getBinding("items");
+        
+            const sQuery = this.byId("searchFieldId")?.getValue(); // replace with your SearchField id
+            const aFilters = [];
+        
+            if (sQuery) {
+                aFilters.push(new Filter("ProductName", FilterOperator.Contains, sQuery));
+            }
+        
+            if (sSelectedKey && sSelectedKey !== "All") {
+                aFilters.push(new Filter("Status", FilterOperator.EQ, sSelectedKey));
+            }
+        
+            oBinding.filter(aFilters);
+        }
+        
     });
 });
