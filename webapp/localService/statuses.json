@@ -1,0 +1,9 @@
+{
+    "statuses": [
+      { "key": "All", "text": "All" },
+      { "key": "A", "text": "New" },
+      { "key": "B", "text": "In Progress" },
+      { "key": "C", "text": "Done" }
+    ]
+  }
+  

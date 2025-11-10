@@ -8,20 +8,20 @@
 		<Toolbar>
 			<Title text="{i18n>invoiceListTitle}"/>
 			<ToolbarSpacer />
-			<SearchField 
+			<SearchField
+				id="searchField" 
 				width="50%"
 				search=".onFilterInvoices"/>
 			<ComboBox 
 				id="statusFilter"
 				width="150px"
 				selectionChange=".onFilterByStatus"
-				selectedKey="All">
-				<items>
-					<core:Item key="All" text="All"/>
-					<core:Item key="A" text="New"/>
-                	<core:Item key="B" text="In Progress"/>
-                	<core:Item key="C" text="Done"/>
-				</items>
+				selectedKey="All"
+				items="{
+					path: 'status>/statuses',
+					sorter: { path: 'text' }
+         		}">
+    			<core:Item key="{status>key}" text="{status>text}" />
 			</ComboBox>
 		</Toolbar>
 	</headerToolbar>
